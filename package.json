@@ -1,0 +1,23 @@
+{
+  "name": "new_ui_project",
+  "version": "1.0.0",
+  "description": "this is a Template for new Frontend project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MBheiry/new_ui_project.git"
+  },
+  "keywords": [
+    "ui",
+    "frontend"
+  ],
+  "author": "Mostafa Bheiry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MBheiry/new_ui_project/issues"
+  },
+  "homepage": "https://github.com/MBheiry/new_ui_project#readme"
+}
