@@ -1,0 +1,78 @@
+@import "bootstrap-variables";
+@import "paths";
+@import "colors";
+@import "mixins";
+@import "fonts";
+
+// ----------
+
+$max-width: 1590px;
+// $max-width: 1586px;
+$default-fontSize: 20px;
+// ----------
+
+$height-s: toRem(32px) !default;
+$height-m: toRem(42px) !default;
+$height-l: toRem(60px) !default;
+// $height-l: toRem(54px) !default;
+// $height-xl: 40px !default;
+
+// $height-s: toVP(32px) !default;
+// $height-m: toVP(42px) !default;
+// $height-l: toVP(54px) !default;
+// ----------
+
+$f5: toRem(5px);
+$f6: toRem(6px);
+$f7: toRem(7px);
+$f8: toRem(8px);
+$f9: toRem(9px);
+$f10: toRem(10px);
+$f11: toRem(11px);
+$f12: toRem(12px);
+$f13: toRem(13px);
+$f14: toRem(14px);
+$f15: toRem(15px);
+$f16: toRem(16px);
+$f17: toRem(17px);
+$f18: toRem(18px);
+$f19: toRem(19px);
+$f20: toRem(20px);
+$f21: toRem(21px);
+$f22: toRem(22px);
+$f23: toRem(23px);
+$f24: toRem(24px);
+$f25: toRem(25px);
+$f26: toRem(26px);
+$f27: toRem(27px);
+$f28: toRem(28px);
+$f29: toRem(29px);
+$f30: toRem(30px);
+// ----------
+
+$v5: toVP(5px);
+$v6: toVP(6px);
+$v7: toVP(7px);
+$v8: toVP(8px);
+$v9: toVP(9px);
+$v10: toVP(10px);
+$v11: toVP(11px);
+$v12: toVP(12px);
+$v13: toVP(13px);
+$v14: toVP(14px);
+$v15: toVP(15px);
+$v16: toVP(16px);
+$v17: toVP(17px);
+$v18: toVP(18px);
+$v19: toVP(19px);
+$v20: toVP(20px);
+$v21: toVP(21px);
+$v22: toVP(22px);
+$v23: toVP(23px);
+$v24: toVP(24px);
+$v25: toVP(25px);
+$v26: toVP(26px);
+$v27: toVP(27px);
+$v28: toVP(28px);
+$v30: toVP(30px);
+

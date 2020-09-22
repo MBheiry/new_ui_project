@@ -1,0 +1,83 @@
+//----
+.lineTrim { 
+    &-6, &-5, &-4, &-3, &-2, &-1 { 
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; 
+    }
+    //-----
+    &-1 { -webkit-line-clamp: 1; }
+    &-2 { -webkit-line-clamp: 2; }
+    &-3 { -webkit-line-clamp: 3; }
+    &-4 { -webkit-line-clamp: 4; }
+    &-5 { -webkit-line-clamp: 5; }
+    &-6 { -webkit-line-clamp: 6; }
+}
+//----
+// short title with dots
+.singleLine{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+//----
+.text-notSelected {
+    user-select: none;
+    // @include css3(user-select, none);
+}
+//----
+.smooth {
+    $time: 0.2s;
+    // ----
+    -webkit-transition: all $time linear;
+    transition: all $time linear;
+}
+//----
+.link {
+    color: $main;
+    background-color: transparent;
+    text-decoration: underline !important;
+    cursor: pointer;
+}
+//----
+.email, .font-en {font-family: "En-regular";}
+.font-ar {font-family: "Ar-regular";}
+//----
+.shadow {
+    -webkit-box-shadow: 0px 3px 6px rgba(0,0,0,0.08);
+    -moz-box-shadow: 0px 3px 6px rgba(0,0,0,0.08);
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.08);
+    // box-shadow: 0px 3px 6px 7px rgba(0,0,0,0.08);
+}
+//----
+
+.hide-desktop {
+    @include mq('tablet', min) {
+        display: none;
+    }
+}
+.hide-mobile {
+    @include mq('tablet') {
+        display: none;
+    }
+}
+//----
+.newContrast {
+    // // object.style.filter="grayscale(100%)"
+    filter: grayscale(100%); 
+    // filter: contrast(200%); 
+    // filter: invert(100%);
+}
+//----
+
+// .main-width {
+//     // width: toVP(1318px);
+//     margin: 0 auto;
+
+//     @include mq('tablet'){ width: 90%; }
+//     @include mq('tablet', 'min'){ width: toVP(1318px); }
+// }
+//----
+//----
+
+
+
+
+
+

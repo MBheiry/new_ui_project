@@ -1,0 +1,28 @@
+﻿.centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.underlined-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: .1rem;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 118%;
+        height: .15rem;
+        background-color: $accent-1;
+    }
+}

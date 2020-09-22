@@ -1,0 +1,54 @@
+
+// ('.ub-alert-body + .icon')
+.ub-alert {
+
+    $colorAlert: $success;
+    // ----
+    border: 2px solid $colorAlert;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 8px 15px;
+    
+    // ----
+    &-body {
+        flex: 1;
+        // ---
+        p {margin: 0;}
+        .title {
+            color: $colorAlert;
+            align-items: center;
+            font-size: $f12;
+            .icon {
+                margin-#{$right}: $f5;
+            }
+        }
+        // ----
+        & + .icon {color: $colorAlert; cursor: pointer;}
+    }
+    
+    // ----
+    // Error MSG here.
+    &.fail {
+        $colorAlert: $error;
+        // ----
+        border: 2px solid $colorAlert;
+        .ub-alert-body {
+            .title { color: $colorAlert; }
+            & + .icon {color: $colorAlert;}
+        }
+    }
+    // ----
+    // info MSG here.
+    &.info {
+        $colorAlert: $main;
+        // ----
+        border: 2px solid $colorAlert;
+        .ub-alert-body {
+            .title { color: $colorAlert; }
+            & + .icon {color: $colorAlert;}
+        }
+    }
+
+
+}

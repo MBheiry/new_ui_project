@@ -1,0 +1,133 @@
+
+li.mobMenu > .icon-menuMob {
+    font-size: 7px;
+}
+
+.mobMenu-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: $light;
+    background-color: $layouts;
+    
+    // padding: 0 $f28;
+    padding: 0 25px;
+    // height: toRem(50px);
+    // height: toRem(50px) + $f20;
+    height: 50px + 20px;
+    // margin-bottom: $f20;
+    margin-bottom: 20px;
+    > * {
+        // font-size: $f22;
+        font-size: 22px;
+        margin: 0;
+        color: $light;
+
+    }
+    .icon {
+        display: none;
+        // margin-#{$right}: $f20;
+        margin-#{$right}: 20px;
+        color: $light !important;
+
+    }
+
+}
+// ----
+
+.mobMenu-content {
+    display: none;
+    // ----
+    position: fixed;
+    top: 0;
+    #{$left}: 0;
+    background-color: $layouts;
+    // background-color: $cn-1;
+
+    height: calc(100vh - #{$menuTab_height});
+    width: 100vw;
+    // ----
+    // > ul {
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: inherit;
+        // ----
+        // .mobMenu-item {
+        li {
+            height: toRem(62px);
+            display: flex;
+            width: 100%;
+            align-items: center;
+            
+            padding: 0 $f28;
+            // ----
+            &:not(:last-child) {border-bottom: 1px solid $light;}
+            // ----
+            // Menu List with sub list.
+            &.mobMenu-item.child {
+                position: relative;
+                // ----
+                a.mobMenu-item-title {
+                    width: inherit;
+                    // ----
+                    &::after {
+                        content: ifLang("\e946", "\e945"); // Next.
+                        // content: "\e946"; // Next.
+                        // content: "\e945"; // Back.
+                        // @include Ar() {content: "\e945";} // Back.
+                        font-family: icomoon;
+                        float: $right;
+                    }
+                }
+                
+            }
+            // ----
+        }
+        // ----
+        &:not(.mobMenu-item-subItems) {
+            margin-#{$left}: 0;
+        }
+        // ----
+        &.mobMenu-item-subItems {
+            display: none;
+            // display: flex;
+            // position: absolute;
+            // top: 0;
+            #{$right}: -100vw;
+            //-----
+            position: fixed;
+            top: 73px;
+
+        }
+        // ----
+    }
+    // ----
+    &.subIsActive {
+        ul {
+            &:not(.mobMenu-item-subItems) {
+                margin-#{$left}: -100vw;
+            }
+            // ----
+            li.mobMenu-item.child.active > ul.mobMenu-item-subItems {
+                display: flex;
+                #{$right}: 0;
+            }
+        }
+        // ----
+        .mobMenu-header .icon {
+            display: block;
+            &::before {
+                @include Ar(){
+                    content: "\e958"
+                };
+                
+            }
+        }
+    }
+    // ----
+
+}

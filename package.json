@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/MBheiry/new_ui_project/issues"
   },
-  "homepage": "https://github.com/MBheiry/new_ui_project#readme"
+  "homepage": "https://github.com/MBheiry/new_ui_project#readme",
+  "devDependencies": {
+    "gulp-changed": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-image": "^6.2.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
 }

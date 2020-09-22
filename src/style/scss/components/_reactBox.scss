@@ -1,0 +1,81 @@
+
+
+.reactBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: $v16;
+    padding-#{$left}: $f10;
+
+    > * {
+        cursor: pointer;
+        &:first-child {margin-#{$right}: $f25;}
+    }
+
+    .icon {
+        font-size: $f19;
+    }
+    .like {
+        .icon-heart.active::before { content: "\e90d" }
+    }
+
+    .share {
+        position: relative;
+        &.active {
+            color: $main;
+            .share-options {display: block;}
+        }
+
+        .share-options {
+            display: none;
+            &.active {
+                display: block;
+            }
+
+            position: absolute;
+            #{$right}: 0;
+            border-radius: $f5;
+            width: toRem(200px);
+            height: toRem(54px);
+
+            font-size: $f25;
+            color: $light;
+            overflow: hidden;
+            // ----
+            > div {
+                display: flex;
+                height: 100%;
+                align-items: center;
+            }
+            // ----
+            .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                height: inherit;
+
+                &-facebook {background-color: #3B5998;}
+                &-twitter {background-color: #00B9FF;}
+                &-mail {background-color: #FF6666;}
+            }
+        }
+    }
+}
+
+
+// <div class="reactBox">
+//     <span class="like">
+//         <i class="icon icon-heart"></i>
+//     </span>
+//     <span class="share">
+//         <i class="icon icon-share"></i>
+//         <div class="share-ptions shadow">
+//             <a href="#" title="facebook"><i class="icon icon-facebook"></i></a>
+//             <a href="#" title="twitter"><i class="icon icon-twitter"></i></a>
+//             <a href="#" title="mail"><i class="icon icon-mail"></i></a>
+//         </div>
+//     </span>
+// </div>

@@ -1,0 +1,17 @@
+
+
+
+.Btn {
+    background-color: #00b7ff;
+    color: inherit;
+    height: toVP(50px);
+    border-radius: toVP(25px);
+    padding: 0 toVP(15px);
+    font-size: toVP(16px);
+    // -----
+
+    &-s {}
+    &-m {}
+    &-l {}
+    &-xl {}
+}

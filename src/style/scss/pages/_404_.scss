@@ -1,0 +1,38 @@
+
+
+#pageNotFound {
+    width: toVP(540px);
+    margin: toVP(165px) auto 0;
+    text-align: center;
+
+    @include mq('tablet') {
+        width: 70%;
+        margin-top: 50%;
+    }
+
+    > img {
+        width: 100%;
+        height: auto;
+        margin-bottom: toVP(20px);
+    }
+    
+    > p {
+        font-size: 21px;
+        font-family: $font-l;
+        margin-bottom: toVP(35px);
+    }
+    > .ub-btn {
+        height: toVP(74px);
+        width: toVP(300px);
+        font-size: toVP(23px);
+        font-family: $font-b;
+
+        @include mq('tablet') {
+           height: 50px;
+            width: 170px;
+            font-size: 16px; 
+        }
+        
+    }
+
+}

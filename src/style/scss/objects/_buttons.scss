@@ -1,0 +1,81 @@
+
+
+.b-btn {
+    color: #fff;
+    background-color: $main;
+    font-size: 1rem;
+    padding: .7rem 1.9rem;
+    border-radius: 2rem;
+}
+
+.b-search-btn {
+    width: 4rem;
+    height: 4rem;
+    background-color: $main;
+    border-radius: 50%;
+    color: #fff;
+    transition: all .4s;
+}
+
+.ub-btn {
+    $margin: 5px 2px !default;
+    //-------
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    //-------
+    background-color: $main;
+    color: $light-text;
+    text-align: center;
+    //color: inherit;
+    //-------
+    //height: toVP(50px);
+    height: $height-s;
+    //-------
+    //border-radius: toVP(25px);
+    border-radius: $f6;
+    //-------
+    //padding: 0 toVP(15px);
+    padding: 0 $f15;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    //-------
+    //font-size: toVP(16px);
+    font-size: $f13;
+    //-------
+    margin: $margin;
+    cursor: pointer;
+    //-------
+    &:disabled,
+    &:hover,
+    &:focus {
+        outline: none; 
+    }
+    // &:disabled {cursor: not-allowed;}    // Added in reset file.
+    //-------
+    &-s {@extend .ub-btn; height: $height-s;}
+    &-m {@extend .ub-btn; height: $height-m;}
+    &-l {@extend .ub-btn; height: $height-l;}
+    //-------
+    //-------
+    &-O {
+        @extend .ub-btn;
+        //-------
+        background-color: transparent;
+        color: $main;
+        border: 1px solid $main;
+        // ----
+        @extend .smooth;
+        // ----
+        &:hover:not(.ub-select) {
+            color: $light-text;
+            background-color: $main;
+        }
+        //-------
+        &-s {@extend .ub-btn-O; height: $height-s;}
+        &-m {@extend .ub-btn-O; height: $height-m;}
+        &-l {@extend .ub-btn-O; height: $height-l;}
+        //-------
+    }
+    //-------
+}

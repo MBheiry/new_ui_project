@@ -1,0 +1,28 @@
+﻿.b-search-bar {
+    // border-radius: 2rem;
+    border-radius: $f10;
+    overflow: hidden;
+    position: relative;
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, .3);
+        // padding-right: 1.85rem;
+        // padding-left: 5.55rem;
+        padding-#{$left}: 1.85rem;
+        padding-#{$right}: 5.55rem;
+        outline: none;
+        color: #fff;
+    }
+
+    &__btn {
+        background-color: $main;
+        position: absolute;
+        //left: 0;
+        #{$right}: 0;
+        top: 0;
+        height: 100%;
+        width: 3.65rem;
+    }
+}

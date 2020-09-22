@@ -1,0 +1,61 @@
+
+
+$menuTab_height: 70px;
+// -----
+
+.mobile-menuTab {
+    display: none;
+}
+
+// -----
+// @include mq('phone') {
+@include mq('tablet') {
+    body {
+        padding-bottom: $menuTab_height - 1px;
+    }
+    .mobile-menuTab { display: block; }
+    header { display: none;}
+    
+}
+// -----
+
+// body {
+//     padding-bottom: $menuTab_height - 1px;
+// }
+.mobile-menuTab {
+    // display: block;
+    width: 100%;
+    height: $menuTab_height;
+    background-color: $dark;
+    color: $light;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    > ul {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        // ----
+        li {
+            // ----
+            .icon {
+                // font-size: $f24;
+                font-size: 24px;
+            }
+            // ----
+            &.active {color: $main;}
+            // ----
+
+        }
+    }
+    // ------
+    @import './mobMenu';
+    @import './mobNotification';
+    @import './mobProfile';
+    // ------
+    // ------
+
+
+}

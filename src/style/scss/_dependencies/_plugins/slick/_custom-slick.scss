@@ -1,0 +1,93 @@
+
+// Default Style for Slick Slider.
+.slick-slider {
+
+    .slick-arrow {
+        $arrowSize: toVP(44px);
+        // -----
+        top: calc(50% - #{$arrowSize});
+        // top: 50% - $arrowSize;
+
+        border-radius: 4px;
+        width: $arrowSize;
+        height: $arrowSize;
+        // -----
+        &:not(.slick-disabled) {
+            border: 1px solid $main;
+            color: $main;
+            background-color: #fff;
+        }
+        &.slick-disabled {
+            border: 1px solid $cn-1;
+            color: $cn-1;
+            background-color: $cn-0;
+        }
+        &.icon-arrow-next {
+            right: 5%;
+        }
+        &.icon-arrow-back {
+            left: 5%;
+        }
+        // icon icon-arrow-down slick-disabled
+    }
+    // -----
+
+    ul.slick-dots {
+        // $dotSize: 14px;
+        // $dotSize-active: 20px;
+        $dotSize: 14px;
+        $dotSize-active: 18px;
+        // $dotSize: toVP(14px);
+        // $dotSize-active: toVP(20px);
+        // ----
+        bottom: 10px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        // ----
+        li {
+            width: $dotSize;
+            height: $dotSize;
+            // ----
+            button {
+                width: inherit;
+                height: inherit;
+                border-radius: 50%;
+                background-color: #fff;
+                opacity: .4;
+                // ----
+                &::before {
+                    display: none;
+                }
+            }
+            // ----
+            &.slick-active {
+                width: $dotSize-active;
+                height: $dotSize-active;
+                button {
+                    opacity: 1;
+                }
+            }
+        }
+
+        @include mq('phone') {
+            $dotSize: 10px;
+            $dotSize-active: 14px;
+            // ----
+            li {
+                width: $dotSize;
+                height: $dotSize;
+                // ----
+                &.slick-active {
+                    width: $dotSize-active;
+                    height: $dotSize-active;
+                }
+            }
+        }
+    }
+
+
+}
+
+
+

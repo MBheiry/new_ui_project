@@ -1,0 +1,24 @@
+
+//--------------------
+// (IE-v10+)
+@mixin IE_Only() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+} 
+// (FireFox)
+@mixin FF_Only() {
+    @-moz-document url-prefix() {@content;} 
+}
+// (Safari)
+@mixin SF_Only() {
+    @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) { @content; }}
+} 
+// (Print mode)
+@mixin print(){
+    @media print { @content; } 
+}
+//--------------------
+// (Arabic)
+@mixin Ar(){
+    [lang="ar"] & { @content } 
+    //[dir="rtl"] & { @content } 
+}

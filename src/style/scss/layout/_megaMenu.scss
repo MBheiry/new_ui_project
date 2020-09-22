@@ -1,0 +1,92 @@
+
+
+.megaMenu {
+    display: flex;
+    flex-direction: row;
+
+    background-color: inherit;
+    width: inherit;
+    height: inherit;
+    // ----
+
+    &-icon {
+        margin-#{$right}: toVP(55px);
+        cursor: pointer;
+
+        > .icon {
+            font-size: $v30;
+        }
+        &.active {
+            > .icon::before {
+                content: "\e902";   // Close Icon.
+            }
+        }
+        .menuItem-drop { 
+            display: none; 
+
+            position: absolute;
+            top: toVP(100px);   // height of nav bar.
+            #{$left}: 0;
+            z-index: 5;
+            background-color: $layouts;
+            // width: toVP(668px);
+            height: 90vh;
+            max-width: toVP(668px);
+            width: auto;
+        }
+    }
+    // ----
+    // Reset a tag.
+    a{
+        width: 100%;
+        display: inline-block;
+
+        &:hover {
+            color: $main;
+        }
+    }
+    // ----
+
+    &-items {
+        width: toVP(503px);
+        padding: 0 toVP(35px);
+        
+        overflow-y: auto;
+    }
+    // ----
+    // 165 503
+
+    &-item {
+        margin: toVP(35px) 0;
+
+        &-title {}
+        &-subItems {
+
+            li {
+                // width: 50%;
+                min-width: 50%;
+                margin-top: toVP(10px);
+                // color: $cn-1;
+                color: rgba($cn-2, .65);
+                font-size: toVP(22px);
+            }
+        }
+
+    }
+    // ----
+
+    .social-links {
+        width: toVP(165px);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-#{$right}: 1px solid rgba(#fff, .15);
+
+        // ----
+
+        li {
+            margin: toVP(20px) 0;
+        }
+    }
+    // ----
+}

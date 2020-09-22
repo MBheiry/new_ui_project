@@ -1,0 +1,152 @@
+// Mixins (directios, trim, ...etc)
+@mixin bi-app-compact($property, $top, $right, $bottom, $left) {
+    @if $default-direction==ltr {
+        #{$property}: $top $right $bottom $left;
+    }
+    @else {
+        #{$property}: $top $left $bottom $right;
+    }
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+    @include bi-app-compact(padding, $top, $right, $bottom, $left);
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+    @include bi-app-compact(margin, $top, $right, $bottom, $left);
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+// ------------------------------------------
+//@function pxto-rem($number, $base:13) {
+// @function pxto-rem($fontSize) {
+//     @if type-of($fontSize)=='number' {
+//         @return ($fontSize / $mainFont) * 1rem;
+//     }
+// } 
+
+// ------------------------------------------
+// Function to toggle value based on current Lang.
+// ifLang("En Value", "Ar Value")";
+@function ifLang($Ar_Val, $En_Val) {
+    @if $default-direction==ltr { @return $Ar_Val; }   // En
+    @else { @return $En_Val; }   // Ar
+}
+// ------------------------------------------
+@function toVP($pxVal, $designWidth:1920) {
+    // @warn "current width is 1920px";
+    // $vw-context: (1920 * 0.01) * 1px;
+    $vw-context: ($designWidth * 0.01) * 1px;
+    @return ($pxVal / $vw-context) * 1vw;
+
+    // @error "$target value not correct; should be like 12px";
+    @error "#{$pxVal} value not correct; should be like 12px";
+}
+// ------------------------------------------
+@mixin toVP($prop, $desktop, $mobile) {
+    // #{$prop}: toVP($desktop);
+    @include mq('tablet', 'min') { #{$prop}: toVP($desktop); }
+    @include mq('tablet') { #{$prop}: $mobile; }
+}
+
+// ------------------------------------------
+// @function toRem($fontSize) {
+@function toRem($fontSize, $fontBase: $default-fontSize) {  //20px.
+    @if type-of($fontSize)=='number' {
+        @return ($fontSize / $fontBase) * 1rem;
+    }
+    @error "#{$fontSize} value not correct; should be like 12px";
+} 
+
+//============breakpoints==============
+$breakpoints: (
+    "phone":        415px,
+    "phone-wide":   481px,
+    "phablet":      561px,
+    "tablet-small": 641px,
+    "tablet":       769px,
+    "tablet-wide":  981px,
+    "tablet-xwide":  1025px,
+    "desktop":      1281px,
+    "desktop-wide": 1367px,
+    "laptop": 1600px
+    );
+//--------------------
+@mixin mq($width, $type: max) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media screen and (#{$type}-width: $width) {  
+            @content;  
+        }
+    }
+} 
+
+// --------------------
+
+// --------------------
+
+@mixin Ar(){
+    [lang="ar"] & { @content };
+    //[dir="rtl"] & { @content } ;
+}
+// --------------------
+@mixin shortAr($prop, $i_1, $i_2, $i_3, $i_4 ){
+    #{$prop}: $i_1 $i_2 $i_3 $i_4;
+    [lang="ar"] & { #{$prop}: $i_1 $i_4 $i_3 $i_2 };
+    // #{$prop}: ifLang($i_1 $i_2 $i_3 $i_4, $i_1 $i_4 $i_3 $i_2);
+}
+// --------------------
+@mixin borderAr( $i_1, $i_2, $i_3, $i_4 ){
+    border-radius: $i_1 $i_2 $i_3 $i_4;
+    [lang="ar"] & { border-radius: $i_2 $i_1 $i_4 $i_3 };
+    // #{$prop}: ifLang($i_1 $i_2 $i_3 $i_4, $i_2 $i_1 $i_4 $i_3);
+}
+// --------------------
+@mixin css3($prop, $value) {
+    -webkit-#{$prop}: -webkit-#{$value};
+    -moz-#{$prop}: -moz-#{$value};
+    -ms-#{$prop}: -ms-#{$value};
+    -o-#{$prop}: -o-#{$value};
+    #{$prop}: #{$value};
+ }
+// --------------------
+@mixin placeholder {
+    &::placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &::-webkit-input-placeholder { @content; }
+}
+//--------------------
+// (IE-v10+)
+@mixin IE_Only() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+} 
+// (FireFox)
+@mixin FF_Only() {
+    @-moz-document url-prefix() {@content;} 
+}
+// (Safari)
+@mixin SF_Only() {
+    @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) { @content; }}
+} 
+// (Print mode)
+@mixin Print(){
+    @media print { @content; } 
+}
+// --------------------
+
+// --------------------
+
+
+// ------------------------------------------
+// ------------------------------------------

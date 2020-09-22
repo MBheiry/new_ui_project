@@ -1,0 +1,229 @@
+
+
+// .reg-preferences-slider {
+.card-slider {
+    $itemSize: toVP(240px);
+    // $itemMargin: toVP(30px) / 2;
+    $itemMargin: 0.60vw / 2;
+    // ----------------------
+
+    margin: 0 -$itemMargin;
+    // width: 640px;
+    // height: 320px;
+
+    // width: 500px;
+    // width: calc(100% - 30px);
+    // height:200px;
+    // margin: 0 auto;
+    // @include mq('tablet') {
+    //     margin-bottom: 70px;
+    // }
+    // ----------
+
+    // Slider with check box.
+    .preferences-item {
+        // @extend .hoverZoom;
+        @extend .imgDim;
+        @extend .BGImg;
+        // -----
+        // width: 100%;
+        // height: 100%;
+        width: $itemSize;
+        height: $itemSize;
+        margin: $itemMargin;
+
+        border-radius: toVP(10px);
+        overflow: hidden;
+        // -----
+        input[type="checkbox"] {
+            display: none;
+            // Card Container 
+            & + label {
+                position: absolute;
+                left: 0;right: 0;top: 0;bottom: 0;
+                z-index: 2;
+                cursor: pointer;
+
+                @extend .fx-center;
+                // @extend .smooth;
+                margin: 0;
+                padding: 10px;
+                // ------
+                // Icon hover/selected.
+                .icon {
+                    border-radius: 50%;
+                    color: #fff;
+                    display: none;
+                    // ----
+                    &.added-preference {
+                        background-color: $main;
+                        padding: 10px;
+                        font-size: 20px;
+                    }
+                    &.add-preference {
+                        font-size: 30px;
+                    }
+                }
+                // ------
+                // Item Title.
+                & + .preferences-txt {
+                    
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    color: #fff;
+                    z-index: 1;
+                    text-align: center;
+
+                }
+
+            }
+            // ------
+            &:checked {
+                & + label {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    .icon.added-preference {
+                        display: block;
+                    }
+                }
+            }
+            // ------
+            &:not(:checked) + label:hover {
+                background: linear-gradient(to top, #fff, transparent);
+                // @extend .smooth;
+                // ----
+                .icon.add-preference {
+                    display: block;
+                }
+                
+            }
+
+
+
+        }
+    }
+    // ----------
+    .swiper-container {
+        // width: 100%;
+        // height: 100%;
+        // margin-left: auto;
+        // margin-right: auto;
+        // -----
+        // .swiper-button-next { #{$right}: 3px;}
+        // .swiper-button-prev { #{$left}: 3px; }
+
+        // [class^="swiper-button-"]::after {
+        //     font-size: 12px;
+        //     color: #fff;
+        //     background-color: $main;
+        //     border-radius: 50%;
+        //     width: 27px;
+        //     height: 27px;
+        //     text-align: center;
+        //     line-height: normal;
+        //     padding: 0;
+        //     margin: 0;
+
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        // }
+    }
+    // ----------
+    .swiper-slide {
+        height: calc((100% - 5px) / 2); //Margin in JS configuration 
+
+        /* Center slide text vertically */
+        // display: -webkit-box;
+        // display: -ms-flexbox;
+        // display: -webkit-flex;
+        display: flex;
+
+        // -webkit-box-pack: center;
+        // -ms-flex-pack: center;
+        // -webkit-justify-content: center;
+        justify-content: center;
+        // -webkit-box-align: center;
+        // -ms-flex-align: center;
+        // -webkit-align-items: center;
+        align-items: center;
+
+        overflow: hidden;
+        // ----------
+
+        // Slider with check box.
+        .preferences-item {
+            width: 100%;
+            height: 100%;
+
+            @extend .imgDim;
+            // @extend .hoverZoom;
+            @extend .BGImg;
+            // background-color: green;
+
+            input[type="checkbox"] {
+                display: none;
+
+                & + label {
+                    position: absolute;
+                    left: 0;right: 0;top: 0;bottom: 0;
+                    z-index: 2;
+                    cursor: pointer;
+
+                    @extend .fx-center;
+                    margin: 0;
+                    padding: 10px;
+                    // ------
+                    .icon {
+                        border-radius: 50%;
+                        color: #fff;
+                        display: none;
+                        // ----
+                        &.added-preference {
+                            background-color: $main;
+                            padding: 10px;
+                            font-size: 20px;
+                        }
+                        &.add-preference {
+                            font-size: 30px;
+                        }
+                    }
+                    // ------
+                    & + .preferences-txt {
+                        
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        color: #fff;
+                        z-index: 1;
+
+                    }
+
+                }
+                // ------
+                &:checked {
+                    & + label {
+                        background-color: rgba(0, 0, 0, 0.6);
+                        .icon.added-preference {
+                            display: block;
+                        }
+                    }
+                }
+                // ------
+                &:not(:checked) {
+                    & + label:hover {
+                        .icon.add-preference {
+                            display: block;
+                        }
+                    }
+                }
+
+
+
+            }
+        }
+        // ----------
+    }
+}

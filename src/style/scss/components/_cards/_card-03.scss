@@ -1,0 +1,53 @@
+
+
+
+.card-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    // -----
+    background-color: $light;
+    width: 100%;
+    height: toVP(393px);
+    border-radius: $f5;
+    overflow: hidden;
+    // -----
+    margin:  $v26  0;
+    // -----
+    @extend .shadow;
+    // -----
+    // .BGImg,
+    // picture {
+    //     height: toVP(221px);
+    // }
+    // -----
+    &_info {
+        padding: $v25;
+        height: toVP(166px);
+        background-color: rgba($light, .8);
+        width: 96%;
+        margin-bottom: $v10;
+        border-radius: inherit;
+        overflow: hidden;
+    }
+    // -----
+
+    @include mq('tablet') {
+        height: toRem(262px);
+        margin: $f10 0;
+        // -----
+        &_info {
+            padding: $f20;
+            height: toRem(112px);
+            background-color: $light;
+            width: 100%;
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+    }
+
+    // ---------------------
+
+
+}

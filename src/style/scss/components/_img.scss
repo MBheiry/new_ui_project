@@ -1,0 +1,47 @@
+
+
+// For background images; parent dev should be overflow:hidden.
+.hoverZoom,.imgZoom {
+
+    &:hover {
+        // -webkit-transform: scale(1.2);
+        // transform: scale(1.2);
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+        // ----
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+        overflow: hidden;
+    }
+    
+}
+// ------
+
+.BGImg {
+    // background-image: url('../images/user-default.png');
+    background-image: url('../images/Default_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $cn-1;
+    // -----
+    position: relative;
+}
+
+.imgDim {
+    
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        // -----
+        background: linear-gradient( to top, $layouts, transparent);
+        // -----
+        //opacity: 0;
+        opacity: 0.8;
+    }
+}

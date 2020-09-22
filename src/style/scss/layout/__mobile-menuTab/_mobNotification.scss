@@ -1,0 +1,52 @@
+
+
+.mobNotification {
+    
+
+    &-content {
+        display: none;
+        // ----
+        position: fixed;
+        top: 0;
+        #{$left}: 0;
+        background-color: $cn-2;
+
+        height: calc(100vh - #{$menuTab_height});
+        width: 100vw;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    &-group {
+        .title {
+            font-family: $font-sb;
+            display: flex;
+            align-items: center;
+
+            padding: 0 $f25;
+            height: 45px;
+            color: $cn-1;
+            border-bottom: 1px solid $c-border;
+
+        }
+
+        ul {
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                min-height: 52px;
+                background-color: $light;
+                color: $dark;
+                padding: 0 $f25;
+                border-bottom: 1px solid $c-border;
+
+                
+                
+            }
+        }
+
+        &.recent li {background-color: rgba($main, 0.1);}
+    }
+}

@@ -1,0 +1,28 @@
+
+#breadCrumb {
+    margin-top: toVP(35px);
+    margin-top:10px;
+    // ----
+
+    .step {
+        display: inline-flex;
+        align-items: center;
+        font-size: $v18;
+        color: $cn-1;
+        text-transform: capitalize;
+        // ----
+        &:not(:last-child)::after {
+            // color: $main;
+            // content: "\e946";
+            content: ifLang("\e946", "\e945");
+            font-family: 'icomoon' !important;
+            font-size: 10px;
+            font-weight: bold;
+            
+            margin: 0 $v20;
+            
+        }
+        // ----
+        &.active { color: $main; }
+    }
+}

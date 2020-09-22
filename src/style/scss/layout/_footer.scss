@@ -1,0 +1,178 @@
+
+
+footer {
+    background-color: #1A202D;
+    color: #fff;
+    // font-size: $v16;
+    // @include toVP('font-size', 16px, 14px);
+    @include toVP('margin-top', 45px, $f25);
+    @include toVP('font-size', 16px, $f14);
+
+    position: relative;
+    // position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    //----
+    //height: 52.72px;
+    // height: toVP(272px);
+    @include toVP('height', 272px, auto);
+    
+    // padding: 0 toVP(42px);
+    //----
+    // @include mq('tablet') {
+    //     height: auto;
+    // }
+    //----
+    a {color: $light-text;}
+    ul {margin: 0;}
+    //----
+    .container {
+        height: inherit;
+        //----
+        @include mq('tablet') {
+            max-width: 90%;
+        }
+        //----
+
+        .level_01 {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            // padding-top: toVP(45px);
+            @include toVP('padding-top', 45px, $f25);
+
+            width: inherit;
+            height: 100%;
+        }
+        //----
+        .links {
+            // height: toVP(146px);
+            height: inherit;
+            ul { 
+                height: inherit;
+
+                li {
+                    width: toVP(213px);
+                    line-height: 30px;
+                    @extend .singleLine;
+                }
+
+                a {
+                    color: rgba($light-text, .8);
+                }
+            }
+        }
+        //----
+
+        .subscribe {
+            max-width: toVP(394px);
+            width: 100%;
+            // ----
+
+            @include mq('tablet') {
+                margin-bottom: $f25;
+            }
+            // ----
+
+            > p {
+                // margin-bottom: toVP(14px);
+                // margin-bottom: $v14;
+                @include toVP('margin-bottom', 14px, $f11);
+            }
+            > div {
+
+                input, button {
+                    // @include toVP('height', 48px, 40px);
+                    @include toVP('height', 48px, toRem(40px));
+
+                }
+                input {
+                    // height: toVP(48px);
+                    // @include toVP('height', 48px, 40px);
+                    // border-radius: 5px 0 0 5px;
+                    // @include borderAr($v5, 0, 0, $v5);
+                    @include borderAr($f5, 0, 0, $f5);
+                    margin: 0;
+                    flex: 1;
+
+                    padding: 0 $f20;
+                    // font-size: $v16;
+                    background-color: #000;
+                    color: rgba(#fff, .5);
+                    outline: none;
+                }
+                button {
+                    margin: 0;
+                    // height: toVP(48px);
+                    // @include toVP('height', 48px, 40px);
+                    // width: toVP(95px);
+                    @include toVP('width', 95px, toRem(90px));
+                    
+                    // font-size: $v13;
+                    font-size: inherit;
+
+                    // border-radius: 0 5px 5px 0;
+                    // @include borderAr(0, $v5, $v5, 0);
+                    @include borderAr(0, $f5, $f5, 0);
+
+                }
+            }
+            //----
+            @include mq('tablet') {
+                min-width: 100%;
+            }
+            
+        }
+        //----
+
+        .social-links {
+
+            @include mq('tablet') {
+                margin-bottom: $f25;
+            }
+
+            > p {
+                // margin-bottom: toVP(14px);
+                @include toVP('margin-bottom', 14px, $f11);
+            }
+            li {
+                // margin-#{$right}: toVP(30px);
+                @include toVP('margin-#{$right}', 30px, $f24);
+
+                .icon {
+                    font-size: $f24;
+                    // font-size: $v25;
+                }
+            }
+        }
+        //----
+
+        
+
+    }
+    //----
+
+    .copyright {
+        // flex: 1;
+        background-color: $layouts;
+        width: 100%;
+        text-align: center;
+        //----
+        @include toVP('height', 52px, toRem(44px));
+
+        // @include mq('tablet') {
+        //     height: toVP(44px, 375);
+        // }
+    }
+    
+    //----
+    @include mq('tablet') {
+        .level_01,.level_02 {display: none !important;}
+    }
+    //----
+}

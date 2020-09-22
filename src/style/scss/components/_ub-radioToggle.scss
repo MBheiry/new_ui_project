@@ -1,0 +1,102 @@
+
+// <label class="radioToggle">
+//     <input id="customSwitch1" type="checkbox">
+//     <span class="circle"></span>
+//     <span class="switch-bg"></span> 
+// </label>
+
+// <label class="radioToggle"><input id="customSwitch1" type="checkbox"><span class="circle"></span><span class="switch-bg"></span></label>
+
+//------
+// .radioToggle {
+label.radioToggle {
+    // Size of toggle
+    // $mainSize: 16px;
+    $mainSize: 18px;
+    // -----
+    $circleMargin: 3px;
+    $circleSize: $mainSize - ($circleMargin * 2);
+    // $mainWidth: ($mainSize * 2) + 5;
+    $mainWidth: $mainSize * 2;
+    // $btnOpacity: 0.4;
+    //------
+
+    width: $mainWidth;
+    height: $mainSize;
+    //height: 34px;
+    //------
+    // display: block;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    z-index: 1;
+    //------
+    .circle {
+        //width: 28px;
+        width: $circleSize;
+        height: $circleSize;
+        //------
+        // background-color: red;
+        background-color: #fff;
+        // opacity: $btnOpacity;
+        //------
+        display: block;
+        position: absolute;
+        left: $circleMargin;
+        // #{$left}: $circleMargin;
+        top: $circleMargin;
+        //------
+        border-style: solid;
+        border-width: 0px;
+        //------
+        border-radius: 50%;
+        //------
+        transition: all 0.3s ease-in-out;
+        //------
+        padding: 0;
+        //------
+        &:before, &:after { display: none;}
+    }
+    //------
+    .switch-bg {
+        width: 100%;
+        height: 100%;
+        //------
+        background-color: $cn-2;
+        // background-color: transparent;
+        // opacity: $btnOpacity;
+        //------
+        // border-width: 1px;
+        // border-style: solid;
+        // border-color: #B1B1B1;
+        //------
+        border-radius: $mainSize / 2;
+        //------
+        #{$left}: 0;
+        //------
+        position: absolute;
+        z-index: -1;
+    }
+    //------
+    input[type="checkbox"] {
+    // .checkboxBtn {
+        opacity: 0;
+        position: absolute;
+        //------
+        &:checked {
+            // $btnOpacity: 1;
+            //------
+            & + .circle {
+                transform: translateX( $mainWidth - $mainSize);
+                // opacity: $btnOpacity;
+            }
+
+            & ~ .switch-bg {
+                background-color: $main;
+                // background-color: transparent;
+                // opacity: $btnOpacity;
+            }
+        }
+    }
+}

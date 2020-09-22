@@ -1,0 +1,164 @@
+
+
+.card-fav {
+    // width: toVP(360px);
+    width: toVP(409px);
+    height: toVP(560px);
+
+    border-radius: $v10;
+    background-color: #fff;
+    // padding: toVP(25px);
+    // padding: 0 $v25 $v25;
+    overflow: hidden;
+
+    margin: $v20 $v15 ;
+
+    font-family: $font-r;
+    position: relative;
+
+    @extend .shadow;
+    // ----
+
+    &-img {
+        height: toVP(230px);
+        // margin: 0 toVP(-25px) $v20;
+    }
+    // ----
+    &_tags {
+        .tag {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($pale-text, 0.20);
+            // font-size: $f16;
+            // font-size: $f11;
+            font-style: italic;
+            // height: $height-s;
+            height: toVP(32px);
+            padding: 0 $v20;
+            border-radius: $v10;
+            margin-#{$right}: $v5;
+
+
+        }
+    }
+    // ----
+    // &-cat {
+    //     font-size: $f13;
+    //     font-family: $font-l;
+    //     margin: toVP(20px) 0;
+    // }
+    // ----
+    &-info {
+        padding: 10px;
+    }
+    // ----
+    // &-desc {
+    //     // font-size: $f20;
+    //     .date {
+    //         font-size: $f13;
+    //         margin-bottom: $v20;
+    //         color: $pale-text;
+    //     }
+    //     .title {
+    //         // font-size: $f16;
+    //         font-size: $f14;
+    //         font-weight: bold;
+    //         margin-bottom: $v23;
+    //     }
+    //     .url {
+    //         font-size: $f13;
+    //         margin-bottom: $v7;
+    //     }
+
+    // }
+    // ----
+    &_date {
+        font-size: $f13;
+        margin-bottom: $v20;
+        color: $pale-text;
+
+        .icon { 
+            color: $main;
+            margin-#{$right}: 5px;
+        }
+    }
+    // &_title {
+    //     // font-size: $f16;
+    //     font-size: $f14;
+    //     font-weight: bold;
+    //     margin-bottom: $v23;
+    // }
+    &_url {
+        // font-size: $f13;
+        // margin-bottom: $v7;
+        margin: $v7 0 $v7;
+        display: block;
+
+        .icon { 
+            // color: $main;
+            margin-#{$right}: 5px;
+        }
+    }
+    // ----
+    // &-share {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     align-items: center;
+
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 0;
+    //     left: 0;
+    //     top: auto;
+
+    //     padding: 0 $v25 $v25;   // Check.
+
+    //     // .icon:first-of-type {
+    //     > *:first-child {
+    //         margin-#{$right}: $v30;
+    //     }
+    // }
+    // ----
+    
+    
+    // ------------------------------------------------
+
+    @include mq('phone') {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        // ----
+        &-img {
+            height:130px;
+            // margin: 0 toVP(-25px) $v20;
+        }
+        // ----
+        &_tags {
+            .tag {
+                // justify-content: center;
+                // align-items: center;
+                // font-size: $f11;
+                // font-style: italic;
+                // height: $height-s;
+                height: auto;
+                padding: 3px 10px;
+                border-radius: 10px;
+                margin-#{$right}: 5px;
+
+
+            }
+        }
+        // ----
+        &_url {
+            margin: 15px 0 2px;
+            // .icon {
+            //     margin-#{$right}: 5px;
+            // }
+        }
+        // ----
+        // ----
+    }
+
+
+}

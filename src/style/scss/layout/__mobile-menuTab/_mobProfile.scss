@@ -1,0 +1,102 @@
+
+
+.mobProfile {
+    
+
+    &-content {
+        display: none;
+        // ----
+        position: fixed;
+        top: 0;
+        #{$left}: 0;
+        background-color: $cn-2;
+
+        height: calc(100vh - #{$menuTab_height});
+        width: 100vw;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        
+    }
+    // -----
+    
+    &-group {
+        margin-bottom: 25px;
+        .title {
+            font-family: $font-sb;
+            display: flex;
+            align-items: center;
+
+            padding: 0 $f25;
+            height: 45px;
+            color: $cn-1;
+            border-bottom: 1px solid $c-border;
+
+        }
+        // -----
+
+        ul {
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                min-height: 52px;
+                background-color: $light;
+                // color: $dark;
+                padding: 0 $f25;
+                border-bottom: 1px solid $c-border;
+                // -----
+                .icon {
+                    // margin-#{$right}: $f12;
+                    margin-#{$right}: 12px;
+                    color: $main;
+                    // font-size: $f24;
+                    font-size: 24px;
+                }
+                // -----
+                p {
+                    // font-size: $f16;
+                    font-size: 16px;
+                    color: $layouts;
+                }
+
+                
+                
+            }
+        }
+
+    }
+    // -----
+
+    &-group.settings {
+        .mobProfile-content {#{$left}: 100vw;}
+        &.active {.mobProfile-content {#{$left}: 0;}}
+        // -----
+        .mobMenu-header {
+            .icon {display: block;}
+        }
+        // -----
+        .b-menu-bar__font-resize-option {
+            color: $layouts;
+            font-family: En-sbold;
+
+            &:not(:last-child) {
+                margin-#{$right}: 24px;
+            }
+
+            &.font-l {font-size: 28px;}
+            &.font-m {font-size: 22px;}
+            &.font-s {font-size: 17px;}
+        }
+        // -----
+
+        .mobProfile-contrast {
+            justify-content: space-between;
+        }
+
+        // -----
+    }
+    // -----
+
+}

@@ -1,0 +1,25 @@
+
+@import 'scss/config/variables';
+
+@import 'scss/_dependencies/bootstrap/scss/bootstrap';
+@import 'scss/_dependencies/_plugins/swiper';
+@import 'scss/_dependencies/_plugins/slick/index';
+
+@import 'scss/base/typography';
+@import 'scss/base/resets';
+@import '../icons/icons';
+
+
+@import 'scss/utilities/utilities';
+
+@import 'scss/layout/index.scss';
+
+// All components.
+@import 'scss/components/index';
+@import 'scss/objects/buttons';
+
+// All Pages.
+@import 'scss/pages/index';
+
+@import 'scss/shared/flex';
+@import 'scss/shared/ub-shared';

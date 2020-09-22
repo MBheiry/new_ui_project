@@ -1,0 +1,293 @@
+
+
+
+header {
+    color: #fff;;
+}
+
+
+.menuNav {
+    background-color: $layouts;
+    // flex-direction: row;
+    width: 100%;
+    // height: 60px;
+    height: toVP(100px);
+    // -----
+    .container {
+        height: inherit;
+        @extend .fx-row-center;
+    }
+    // -----
+    &-logo {
+        flex: 1;
+        a { display: inline-block }
+        img {
+            // height: 30px;
+            height: toVP(40px);
+            width: auto;
+            // @extend .imgZoom;
+        }
+    }
+    // -----
+    &-control {
+        @extend .fx-row-center;
+        // justify-content: space-between !important;
+        justify-content: flex-end !important;
+        // width: 250px;
+        // width: toVP(470px);
+        width: auto;
+        position: relative;
+        // -----
+        .menuItem {
+            cursor: pointer;
+            position: relative;
+            
+            @extend .fx-center;
+
+            background-color: transparent;
+            width: toVP(50px);
+            height: toVP(50px);
+            border-radius: toVP(5px);
+
+            &:not(:first-child) {
+                // margin-#{$left}: toVP(50px);
+                margin-#{$left}: toVP(30px);
+            }
+            
+            // ------
+            // &:focus:not(.signIn),
+            &.active:not(.signIn),
+            &:hover:not(.signIn) {
+                background-color: $main;
+                @extend .smooth;
+                .icon-alert::after { background-color: #fff }
+            }
+            // ------
+            // Toggle sub menu.
+            // &:focus {
+            // &.active {
+            //     .menuItem-drop {display: block;} 
+            // }
+            // ------
+            // Toggle sub menu title tag.
+            // &:hover:not(:focus) {
+            &:hover:not(:focus):not(.active) {
+                .menuItem-hover {display: flex;} 
+            }
+            // ------
+            // Root Icons.
+            > i.icon {
+                font-size: $v30;
+                color: #fff;
+                // ------
+                
+            }
+            // ------
+            > .icon-alert {
+                // display: flex;
+                // align-items: flex-start;
+                position: relative;
+                // ------
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: toVP(15px);
+                    height: toVP(15px);
+                    background-color: $main;
+                    border-radius: 50%;
+
+                    // position: relative;
+                    position: absolute;
+                    // right: toVP(4px);
+                    // top: toVP(5px);
+                    right: toVP(-4px);
+                    top: toVP(-5px);
+                }
+                // ------
+                
+            }
+            // ------
+            &.search-nav {
+                .search-box {
+                    
+                    // ----
+                    position: absolute;
+                    #{$right}: 0;
+                    top: 0;
+                    height: inherit;
+                    // transform: translateX(100%);
+                    // transform: translateX(0);
+                    input {
+                        height: inherit;
+                        background-color: rgba($pale-text, .5);
+                        width: toVP(480px);
+                        padding-#{$left}: toVP(20px);
+                        font-size: toVP(18px);
+                        outline: none;
+                        color: #fff;
+                    }
+                }
+                // -----
+            }
+            // ------
+            &.signIn {
+                // width: auto;
+                // .icon {margin-#{$right}: 5px;}
+                // p { font-size: $f10; color: #fff;}
+                width: toVP(132px);
+                background-color: $main;
+                height: toVP(54px);
+                padding: 0 $v20;
+                border-radius: $v5;
+                font-size: $v18;
+            }
+            // ------
+            &.loggedIn {
+                width: auto;
+                .BGImg {
+                    width: toVP(50px);
+                    height: toVP(50px);
+                    margin-#{$right}: toVP(10px);
+                    border-radius: 50%;
+                }
+                .name {
+                    // max-width: toVP(100px);
+                    max-width: 80px;
+                    color: #fff;
+                }
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+            // ------
+            &-drop {
+                display: none;
+                // -----
+                // width: toVP(230px);
+                height: auto;
+                padding: 0 toVP(15px);
+                background-color: #fff;
+                color: $pale-text;
+                position: absolute;
+                top: toVP(50px);
+                #{$right}: 0;
+                z-index: 4;
+                border-radius: 5px;
+                @extend .shadow;
+                // ------
+                .title {
+                    font-size: toVP(16px);
+                    color: $pale-text;
+                    margin: toVP(15px) 0 toVP(10px);
+                }
+                // ------
+                .label {
+                    font-size: toVP(18px);
+                    color: #000;
+                    flex: 1;
+                }
+                
+                // ------
+                &.settings {
+                    width: toVP(230px);
+                    // ----
+                    > div:not(:last-of-type) { 
+                        border-bottom: 1px solid rgba( $pale-text, 0.20); 
+                    }
+                    // ----
+                    .settings-group {
+                        padding-bottom: toVP(15px);
+                        // ------
+                        .icon {display: none; font-size: toVP(15px);}
+                        // ------
+                        &.fontResize .label {
+                            font-weight: bold;
+                            &.active {color: $main;}
+                            &.font-l {font-size: toVP(28px);}
+                            &.font-m {font-size: toVP(22px);}
+                            &.font-s {font-size: toVP(17px);}
+                            &:not(:last-of-type) {margin-#{$right}: toVP(20px);}
+                        }
+                        // ------
+                        &.contrast {
+                            display: flex;
+                            align-items: flex-end;
+                            // .label {flex: 1;}
+                        }
+                        // ------
+                        p.active {
+                            display: flex;
+                            // ------
+                            > span {flex: 1;}
+                            // > .icon.active {color: $main;}
+                            > .icon {color: $main; display: inline;}
+                        }
+                    }
+                }
+                // ------
+                &.alert {
+                    width: toVP(365px);
+                    // ----
+                    .label {
+                        // padding-bottom: toVP(15px);
+                        // margin-bottom: toVP(15px);
+                        padding: 0  toVP(15px) toVP(15px);
+                        margin: 0 toVP(-15px) toVP(15px);
+                        border-bottom: 1px solid rgba( $pale-text, 0.20);
+
+                    }
+
+                    .allAlerts {
+                        text-align: center;
+                        margin-bottom: toVP(15px);
+                        color: $main;
+
+                        .icon {
+                            display: inline-block;
+                            // transform: ifLang(rotate(180deg), none);
+                            transform: rotate(180deg);
+                            margin-#{$left}: toVP(14px);
+
+                            @include Ar(){
+                                transform: none;
+                            }
+                        }
+                    }
+                }
+                // ------
+
+            }
+            // ------
+            &-hover {
+                display: none;
+                justify-content: center;
+                // -----
+                position: absolute;
+                top: toVP(50px);
+                #{$right}: 0;
+                background-color: rgba($pale-text, 0.8);
+                height: 40px;
+                border-radius: 5px;
+                width: auto;
+                padding: 0 toVP(17px);
+                // display: flex;
+                align-items: center;
+                color: #fff;
+                font-size: toVP(16px);
+                z-index: 4;
+                
+                @include IE_Only() {
+                    width: 100px;
+                }
+            }
+            // ------
+            // ------
+
+
+        }
+        
+    }
+    // -----
+    
+    // -----
+}

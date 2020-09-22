@@ -1,0 +1,59 @@
+
+
+.ub-form {
+    $input-BG-color: $layout-body;
+    $input-color: $dark-text;
+    $input-radius: 5px;
+    $input-height: $height-s;
+    $input-padding: 0 10px;
+    $input-border: 1px solid $layout-body;
+    // -----
+
+    &-section {
+        .items-group {}
+    }
+
+    input {
+
+    }
+
+    textarea {}
+
+    
+    .btn,button {}
+
+
+
+    select,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        background-color: $input-BG-color;
+        color: $input-color;
+        border-radius: $input-radius;
+        height: $input-height;
+        padding: $input-padding;
+        border: $input-border;
+        //----
+        &:focus {
+            outline: none;
+            //background-color: $layout-body;
+            border-color: $main;
+
+
+        }
+        //----
+        &:disabled {
+            // background-color: gray;
+            color: $pale-text;
+            cursor: not-allowed;
+        }
+        //----
+    }
+    
+    
+}
+
+
+
+

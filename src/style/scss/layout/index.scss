@@ -1,0 +1,42 @@
+
+@import './header', 
+        // './menu',  
+        './megaMenu',  
+        './__mobile-menuTab/index',  
+        './footer';
+
+// -----------------------
+
+
+
+body.inner-layout {
+    display: flex;
+    // -------
+    main {
+        flex: 1;
+        order: 1;
+    }
+    // -------
+
+    header {
+        width: 8rem;
+        order: 2;
+        // ----
+        > .b-menu-bar {border: none;}
+        .b-menu-bar__burger span {
+            background-color: #000;
+        }
+        *::before, * {color: #000;}
+    }
+    // -------
+
+    
+}
+
+body > main[role="main"] {
+    background-color: $layout-body;
+    // -----
+    > *:first-child ~ *:last-child {margin-bottom: 100px;}  // test.
+    // margin-bottom: 40px;
+    // & ~ footer {z-index: -1;}
+}

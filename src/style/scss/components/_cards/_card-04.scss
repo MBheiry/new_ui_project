@@ -1,0 +1,173 @@
+
+
+
+.card-4 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // -----
+    width: inherit;
+    min-width: 100%;
+    // height: toVP(432px);
+    height: toVP(432px) + ($v17 * 2);
+    background-color: #fff;
+    border-radius: $f5;
+    overflow: hidden;
+    // -----
+    margin: $v17 0;
+    // -----
+    .BGImg,
+    picture {
+        height: inherit;
+        width: toVP(638px);
+
+        & + .card-4_info {
+            @include mq('tablet', min) { 
+                // max-width: toVP(877px); 
+                max-width: toVP(877px) + ( toVP(35px) * 2 ); 
+            }
+        }
+    }
+    // -----
+    &_info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        // ----
+        width: 100%;
+        height: 100%;
+        padding: toVP(35px);
+        position: relative;
+        // -----
+        > [class*="title-"] {
+            margin-bottom: $v19;
+        }
+        // -----
+        > p[class*="text-"] { margin-bottom: toVP(60px); }
+        // -----
+        .options {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            // padding: 0 toVP(40px) toVP(40px);
+            padding-top: $v22;
+            border-top: 1px solid $c-border;
+            // margin: 0 toVP(40px) toVP(40px);
+
+            // position: absolute;
+            // bottom: 0;left: 0;right: 0; top: auto;
+
+            // .time {
+            &-item {
+                display: flex;
+                // flex: 1;
+                // -----
+                // &:not(:last-child) {margin-#{$right}: toVP(40px);}
+                // // -----
+                // // &:last-child {max-width: toVP(600px);}
+                
+                // -----
+                .icon {
+                    font-size: toVP(50px);
+                    margin-#{$right}: $v14;
+                    color: $cn-1;
+                }
+                // -----
+                &-title {
+                    font-size: $v18;
+                    color: $cn-1;
+                    & + p {
+                        font-size: $v20;
+                        // span::after {
+                        span:not(:last-child)::after {
+                            content: "-";
+                            margin: 0 2px;
+                            display: inline-block;
+                        }
+                    }
+                    
+                }
+                // -----
+                @include mq('tablet', min) { // -item root.
+                    
+                    &:not(:last-child) {
+                        margin-#{$right}: toVP(40px);
+                    }
+                    // -----
+                    &:last-child {
+                        max-width: toVP(600px);
+                    }
+                    // -----
+                    &-title + p {
+
+                        &.facilities {
+                            max-width: toVP(500px);
+                        }
+                        // -----
+                        &.time {
+                            max-width: toVP(190px);
+                        }
+                    }
+                }
+                
+                
+            }
+            
+        }
+    }
+    // -----
+    @include mq('tablet') {
+        flex-direction: column;
+        height: auto;
+        margin: $f10 0;
+        // -----
+        &_info {padding: $f15 $f20;}
+        // -----
+        .BGImg,
+        picture {
+            height: toRem(150px);
+            width: 100%;
+
+            & + .card-4_info {
+                @include mq('tablet', min) { max-width: toVP(877px); }
+            }
+        }
+        // -----
+        .options {
+            flex-direction: column;
+            align-items: flex-start;
+            // -----
+            &-item {
+                width: 100%;
+                // &:not(:last-child) {margin-bottom: $f14;}
+                &:not(:last-child) {margin: $f14 0;}
+                // -----
+                .icon {
+                    font-size: toRem(35px);
+                    margin-#{$right}: $f9;
+
+                }
+                // -----
+                &-title {
+                    font-size: $f14;
+                    & + p {
+                        font-size: $f16;
+                        max-width: none;
+                        &.facilities {
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                }
+            }
+        }
+        // -----
+
+    }
+    // -----
+
+
+
+
+}
