@@ -1,54 +1,53 @@
-// Mixins (directios, trim, ...etc)
-@mixin bi-app-compact($property, $top, $right, $bottom, $left) {
-    @if $default-direction==ltr {
-        #{$property}: $top $right $bottom $left;
+
+// ------------------------------------------
+@mixin avatar($size, $circle: true) {
+    width: $size;
+    height: $size;
+
+    @if $circle {
+        border-radius: $size / 2;
     }
     @else {
-        #{$property}: $top $left $bottom $right;
+        border-radius: $f5;
     }
 }
-
-@mixin padding($top, $right, $bottom, $left) {
-    @include bi-app-compact(padding, $top, $right, $bottom, $left);
-}
-
-@mixin margin($top, $right, $bottom, $left) {
-    @include bi-app-compact(margin, $top, $right, $bottom, $left);
-}
-
-@mixin text-truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-
 // ------------------------------------------
-//@function pxto-rem($number, $base:13) {
-// @function pxto-rem($fontSize) {
-//     @if type-of($fontSize)=='number' {
-//         @return ($fontSize / $mainFont) * 1rem;
-//     }
-// } 
-
+// Use this Mixin to add Icon before.
+@mixin iconBefore($iconCode: "\e940", $iconFont: "icomoon") {
+    &::before {
+        content: $iconCode;
+        font-family: '#{$iconFont}' !important; 
+        font-size: inherit;
+        margin-#{$right}: 5px;
+    }
+}
+// ------------------------------------------
+// Use this Mixin to add Icon before.
+@mixin iconAfter($iconCode: "\e915", $iconFont: "icomoon") {
+    //icon-arrow-link
+    //icon-arrow-link_hover
+    &:after {
+        content: $iconCode;
+        font-family: '#{$iconFont}' !important; 
+        font-size: inherit;
+        margin-#{$left}: 5px;
+    }
+}
 // ------------------------------------------
 // Function to toggle value based on current Lang.
-// ifLang("En Value", "Ar Value")";
-@function ifLang($Ar_Val, $En_Val) {
-    @if $default-direction==ltr { @return $Ar_Val; }   // En
-    @else { @return $En_Val; }   // Ar
+@function ifAr($Ar_Val, $En_Val) {
+    @if $isAr { @return $Ar_Val; }
+    @else { @return $En_Val; }
 }
 // ------------------------------------------
 @function toVP($pxVal, $designWidth:1920) {
-    // @warn "current width is 1920px";
     // $vw-context: (1920 * 0.01) * 1px;
     $vw-context: ($designWidth * 0.01) * 1px;
     @return ($pxVal / $vw-context) * 1vw;
-
-    // @error "$target value not correct; should be like 12px";
+    
     @error "#{$pxVal} value not correct; should be like 12px";
 }
-// ------------------------------------------
+// // ------------------------------------------
 @mixin toVP($prop, $desktop, $mobile) {
     // #{$prop}: toVP($desktop);
     @include mq('tablet', 'min') { #{$prop}: toVP($desktop); }
@@ -56,7 +55,6 @@
 }
 
 // ------------------------------------------
-// @function toRem($fontSize) {
 @function toRem($fontSize, $fontBase: $default-fontSize) {  //20px.
     @if type-of($fontSize)=='number' {
         @return ($fontSize / $fontBase) * 1rem;
@@ -66,6 +64,12 @@
 
 //============breakpoints==============
 $breakpoints: (
+    // "xs": 0,
+    // "sm": 576px,
+    // "md": 768px,
+    // "lg": 992px,
+    // "xl": 1366px,
+    // "xxl": 1640px,
     "phone":        415px,
     "phone-wide":   481px,
     "phablet":      561px,
@@ -76,39 +80,32 @@ $breakpoints: (
     "desktop":      1281px,
     "desktop-wide": 1367px,
     "laptop": 1600px
+    
     );
 //--------------------
 @mixin mq($width, $type: max) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);
-        @if $type == max {
-            $width: $width - 1px;
-        }
-        @media screen and (#{$type}-width: $width) {  
-            @content;  
-        }
+        @if $type == max {$width: $width - 1px;}
+        @media screen and (#{$type}-width: $width) { @content;}
     }
-} 
-
+}
 // --------------------
-
-// --------------------
-
 @mixin Ar(){
     [lang="ar"] & { @content };
     //[dir="rtl"] & { @content } ;
 }
 // --------------------
 @mixin shortAr($prop, $i_1, $i_2, $i_3, $i_4 ){
-    #{$prop}: $i_1 $i_2 $i_3 $i_4;
-    [lang="ar"] & { #{$prop}: $i_1 $i_4 $i_3 $i_2 };
-    // #{$prop}: ifLang($i_1 $i_2 $i_3 $i_4, $i_1 $i_4 $i_3 $i_2);
+    // #{$prop}: $i_1 $i_2 $i_3 $i_4;
+    // [lang="ar"] & { #{$prop}: $i_1 $i_4 $i_3 $i_2 };
+    #{$prop}: ifAr( $i_1 $i_4 $i_3 $i_2 , $i_1 $i_2 $i_3 $i_4 );
 }
 // --------------------
 @mixin borderAr( $i_1, $i_2, $i_3, $i_4 ){
-    border-radius: $i_1 $i_2 $i_3 $i_4;
-    [lang="ar"] & { border-radius: $i_2 $i_1 $i_4 $i_3 };
-    // #{$prop}: ifLang($i_1 $i_2 $i_3 $i_4, $i_2 $i_1 $i_4 $i_3);
+    // border-radius: $i_1 $i_2 $i_3 $i_4;
+    // [lang="ar"] & { border-radius: $i_2 $i_1 $i_4 $i_3 };
+    border-radius: ifAr( $i_2 $i_1 $i_4 $i_3 ,  $i_1 $i_2 $i_3 $i_4 );
 }
 // --------------------
 @mixin css3($prop, $value) {

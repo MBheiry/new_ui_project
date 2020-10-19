@@ -1,7 +1,6 @@
-* {
-    box-sizing: border-box;
-    // position: relative;
-}
+
+
+* { box-sizing: border-box; }
 
 html {
     text-align: $default-float;
@@ -12,20 +11,7 @@ html {
         // $default-fontSize: 20px; // Default value 20px.
         font-size: $default-fontSize;
     }
-    // @media (max-width: 1919px) {
-    //     $default-fontSize: 18px;
-    //     font-size: $default-fontSize;
-    // }
-    // @media (max-width: 981px) {
-    //     $default-fontSize: 16px;
-    //     font-size: $default-fontSize;
-    // }
-
-
-
-    // @media (max-width: 1640px) {
-    //     font-size: 14.286px;
-    // }
+    
     @media (max-width: 1640px) {
         font-size: 16px;
     }
@@ -36,41 +22,36 @@ html {
 
     @media (max-width: 1024px) {
         font-size: 13px;
-        // overflow: visible !important;
     }
 }
 
 body {
     margin: 0;
-
     // font-family: $font-r;
     font-family: $font-default;
-    //font-weight: ;
-
-    background-color: $layout-body !important;
+    background-color: $secondary-gray !important;
     text-align: $default-float;
-
-    // padding-bottom: 30px;
-    // &:not(.no-nav) { padding-bottom: 30px; }
 }
 
-img {
-    display: block;
-}
-
+img { display: block; }
 // -----
+
 picture {
     width: inherit;
     height: inherit;
     overflow: hidden;
     position: relative;
+    display: block;
+    // ----
     img {
         // width: inherit;
+        // height: auto;
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit:cover;   // New
     }
 }
+// -----
 
 ul {
     list-style: none;
@@ -123,7 +104,7 @@ input {
 // ------------
 
 // All Error MSG
-[class*="error"] { color: $error !important; font-size: $f12; }
+[class*="error"] { color: $danger !important; font-size: $f12; }
 // ------------
 
 button {
@@ -138,7 +119,7 @@ button {
 a {
     text-decoration: none !important;
     color: inherit;
-    // &:not([class*="btn"]){color: $main;}
+    // &:not([class*="btn"]){color: $primary;}
 }
 //----
 p {margin: 0;}

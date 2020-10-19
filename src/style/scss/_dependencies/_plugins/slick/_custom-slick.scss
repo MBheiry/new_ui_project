@@ -3,7 +3,7 @@
 .slick-slider {
 
     .slick-arrow {
-        $arrowSize: toVP(44px);
+        $arrowSize: toRem(44px);
         // -----
         top: calc(50% - #{$arrowSize});
         // top: 50% - $arrowSize;
@@ -13,22 +13,70 @@
         height: $arrowSize;
         // -----
         &:not(.slick-disabled) {
-            border: 1px solid $main;
-            color: $main;
+            border: 1px solid $primary;
+            color: $primary;
             background-color: #fff;
         }
         &.slick-disabled {
-            border: 1px solid $cn-1;
-            color: $cn-1;
-            background-color: $cn-0;
+            border: 1px solid $third-gray;
+            color: $third-gray;
+            background-color: $input-color;
         }
-        &.icon-arrow-next {
-            right: 5%;
-        }
-        &.icon-arrow-back {
-            left: 5%;
-        }
+        &.icon-arrow-next {right: 5%;}
+        &.icon-arrow-back {left: 5%;}
         // icon icon-arrow-down slick-disabled
+        // -----
+
+        // -----
+    }
+    // -----
+    &.topArrow {
+        .slick-arrow {
+            $arrowSize: toRem(44px);
+            // -----
+            // top: calc(50% - #{$arrowSize});
+            top: ($arrowSize / 2) * -1;
+
+            // border-radius: 4px;
+            // width: $arrowSize;
+            // height: $arrowSize;
+            // -----
+            &.icon-arrow-next {
+                #{$right}: $f15;
+                #{$left}: auto;
+            }
+            &.icon-arrow-back {
+                #{$right}: $f15 + $arrowSize + $f5;
+                #{$left}: auto;
+            }
+            // &.icon-arrow-next {
+            //     right: $f15;
+            //     left: auto;
+            // }
+            // &.icon-arrow-back {
+            //     right: $f15 + $arrowSize + $f5;
+            //     left: auto;
+            // }
+            // icon icon-arrow-down slick-disabled
+            // -----
+            @include mq('tablet') {
+                $arrowSize: 30px;
+                // -----
+                font-size: inherit;
+                // -----
+                // top: ($arrowSize / 2) * -1;
+                top: $arrowSize * -1;
+                width: $arrowSize;
+                height: $arrowSize;
+                // -----
+                &.icon-arrow-next { #{$right}: 2px; }
+                &.icon-arrow-back { #{$right}: 2px + $arrowSize + 5px;}
+
+            }
+
+            // -----
+        }
+
     }
     // -----
 
@@ -37,8 +85,8 @@
         // $dotSize-active: 20px;
         $dotSize: 14px;
         $dotSize-active: 18px;
-        // $dotSize: toVP(14px);
-        // $dotSize-active: toVP(20px);
+        // $dotSize: toRem(14px);
+        // $dotSize-active: toRem(20px);
         // ----
         bottom: 10px;
         display: flex;

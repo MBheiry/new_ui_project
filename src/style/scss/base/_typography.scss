@@ -14,21 +14,18 @@
     // Page Title.
     &-l {
         font-size: toVP(60px);
-        // line-height: toVP(82px);
         font-family: $font-sb;
         // -----
         margin: 0 0 toVP(31px);
         // -----
         @include mq('tablet') {
-            font-size: toRem(37px);;
-            // line-height: toRem(51px);
+            font-size: toRem(37px);
             // -----
             margin: 0 0 $f20;
         }
         // -----
         @include mq('phone') {
             font-size: $f24;
-            // line-height: toRem(33px);
             // -----
             margin: 0 0 $f15;
         }
@@ -36,19 +33,16 @@
     // Card Titles.
     &-m {
         font-size: toVP(37px);
-        // line-height: toVP(51px);
         font-family: $font-b;
         // -----
         margin: 0 0 $v14;
         // -----
         @include mq('tablet') {
             font-size: $f27;
-            // line-height: toVP(37px);
         }
         // -----
         @include mq('phone') {
             font-size: $f24;
-            // line-height: toRem(33px);
             // -----
             margin: 0 0 10px;
         }
@@ -84,38 +78,25 @@
 //--------
 
 .text {
-    &-l,&-m,&-s { font-family: $font-r;}
+    &-l,&-m,&-s { font-family: $font-r;line-height: 1.5;}
 
     // Navigation Items.
     &-l {
         font-size: $f20;
-        // line-height: $f29;
-        line-height: 28px;
         // -----
-        @include mq('tablet') {
-            font-size: $f16;
-            line-height:$f22;
-        }
+        @include mq('tablet') {font-size: $f16;}
     }
     // Content & Buttons Text.
     &-m {
         font-size: $f18;
-        line-height: $f24;
         // -----
-        @include mq('tablet') {
-            font-size: $f14;
-            line-height:$f19;
-        }
+        @include mq('tablet') {font-size: $f14;}
     }
     // Navigation Buttons.
     &-s {
         font-size: $f16;
-        line-height: $f22;
         // -----
-        @include mq('tablet') {
-            font-size: $f14;
-            line-height:$f17;
-        }
+        @include mq('tablet') {font-size: $f14;}
     }
     // Error.
     &-xs {  

@@ -1,14 +1,19 @@
-@import "bootstrap-variables";
-@import "paths";
-@import "colors";
 @import "mixins";
+// @import "bootstrap-variables";
+// @import "paths";
+@import "colors";
 @import "fonts";
 
 // ----------
 
 $max-width: 1590px;
 // $max-width: 1586px;
+// ----------
 $default-fontSize: 20px;
+
+$font-l: 20px;
+$font-m: 13px;
+$font-s: 12px;
 // ----------
 
 $height-s: toRem(32px) !default;
@@ -17,9 +22,9 @@ $height-l: toRem(60px) !default;
 // $height-l: toRem(54px) !default;
 // $height-xl: 40px !default;
 
-// $height-s: toVP(32px) !default;
-// $height-m: toVP(42px) !default;
-// $height-l: toVP(54px) !default;
+// $height-s: toRem(32px) !default;
+// $height-m: toRem(42px) !default;
+// $height-l: toRem(54px) !default;
 // ----------
 
 $f5: toRem(5px);
@@ -48,31 +53,13 @@ $f27: toRem(27px);
 $f28: toRem(28px);
 $f29: toRem(29px);
 $f30: toRem(30px);
-// ----------
 
-$v5: toVP(5px);
-$v6: toVP(6px);
-$v7: toVP(7px);
-$v8: toVP(8px);
-$v9: toVP(9px);
-$v10: toVP(10px);
-$v11: toVP(11px);
-$v12: toVP(12px);
-$v13: toVP(13px);
-$v14: toVP(14px);
-$v15: toVP(15px);
-$v16: toVP(16px);
-$v17: toVP(17px);
-$v18: toVP(18px);
-$v19: toVP(19px);
-$v20: toVP(20px);
-$v21: toVP(21px);
-$v22: toVP(22px);
-$v23: toVP(23px);
-$v24: toVP(24px);
-$v25: toVP(25px);
-$v26: toVP(26px);
-$v27: toVP(27px);
-$v28: toVP(28px);
-$v30: toVP(30px);
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 
+
+// /////////////////////////////////////
+
+@import "bootstrap-variables";
+
+// /////////////////////////////////////

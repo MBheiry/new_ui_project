@@ -191,5 +191,8 @@ $slick-opacity-not-active: 0.25 !default;
             color: $slick-dot-color-active;
             opacity: $slick-opacity-default;
         }
+        &:only-child {
+            display: none;
+        }
     }
 }

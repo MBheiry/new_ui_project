@@ -90,6 +90,7 @@ exports.cImg = () => (
 const Watch = {
     wUI: function () {
         watch(['./**/*.scss'], Style.sassDev),
+        // watch(['./**/*.scss'], parallel(Style.sassDev, Style.sassPro) ),
         watch([url.src.scripts + '_customJS/**/*.js'], Scripts.bottom)
     }
     //------
