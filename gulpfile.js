@@ -7,6 +7,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const changed = require('gulp-changed');
 const image = require('gulp-image');
+const rename = require("gulp-rename");  // Add ".min" before file extintion 
 ////////////////////////////////////////////////
 
 // All Pathes
@@ -24,18 +25,19 @@ const url = {
 const Style = {
     //SASS Tasks
     sassDev: function () {
-        return src([
-                // url.src.css + 'style-rtl_theme01_.min.scss', 
-                // url.src.css + 'style-ltr_theme01_.min.scss', 
-                // url.src.css + 'style-rtl.min.scss', 
-                // url.src.css + 'style-ltr.min.scss'
-                url.src.css + '*.scss'
-                ])
+        return src([ url.src.css + '*.scss' ])
             .pipe(sourcemaps.init())
-            // .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-            .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-            //.pipe(concat('zeee.css'))           
+            .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))         
             .pipe(sourcemaps.write('.'))
+            .pipe(dest(url.src.css));
+
+    },
+    sassPro: function () {
+        return src([ url.src.css + '*.scss' ])
+            // .pipe(sourcemaps.init())
+            .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+            .pipe(rename({ suffix: '.min' }))         
+            // .pipe(sourcemaps.write('.'))
             .pipe(dest(url.src.css));
 
     }
