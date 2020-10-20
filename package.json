@@ -4,7 +4,9 @@
   "description": "this is a Template for new Frontend project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "Gulp_JS": "gulp jsDev",
+    "Gulp_CSS": "gulp cssDev"
   },
   "repository": {
     "type": "git",

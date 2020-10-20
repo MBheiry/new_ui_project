@@ -83,7 +83,7 @@ $breakpoints: (
     
     );
 //--------------------
-@mixin mq($width, $type: max) {
+@mixin mq($width: "tablet", $type: max) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);
         @if $type == max {$width: $width - 1px;}
